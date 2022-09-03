@@ -1,0 +1,36 @@
+@mixin fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-center-clo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin button($bg-color, $color) {
+    height: 60px;
+    width: 170px;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    background-color: $bg-color;
+    color: $color;
+    cursor: pointer;
+}

@@ -1,0 +1,71 @@
+@use "./helpers/varibales" as *;
+@use "./helpers/mixins" as *;
+@use "./layout/layout" as *;
+
+.Questions {
+    margin-top: 5.5rem;
+    text-align: center;
+
+    &-title {
+        @extend %main-title;
+    }
+
+    &-p {
+        @extend %main-p;
+        max-width: 530px;
+        margin: auto;
+    }
+
+    &-content {
+        margin: 4rem auto;
+        max-width: 800px;
+
+        .Question-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--text-gray); 
+            text-align: left;
+            .Question {
+                @include flex-between;
+                cursor: pointer;
+
+                h3 {
+                    color: var(--Very-Dark-Blue);
+                    font-size: 1.4rem;
+                    font-weight: $font-normal;
+                }
+
+                .arrow {
+                    color: var(--Primary-blue);
+                    font-size: 1.5rem;
+                    transition: all .4s ease;
+                }
+
+                &.active .arrow {
+                    color: var(--Primary-red);
+                    transform: rotate(180deg);
+                }
+            }
+
+            .Answer {
+                line-height: 1.5;
+                color: var(--Grayish-Blue);
+                margin: 1rem 0;
+                font-size: 1.16rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: all .6s;
+
+                &.active {
+                    max-height: fit-content;
+                    overflow: visible;
+                }
+            }
+        }
+    }
+
+    &-button {
+        @include button(var(--Primary-blue),var(--text-color));
+        font-size: 19px;
+        letter-spacing: 1px;
+    }
+}

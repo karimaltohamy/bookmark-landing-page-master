@@ -1,0 +1,60 @@
+@use "./helpers/varibales" as *;
+@use "./helpers/mixins" as *;
+@use "./layout/layout" as *;
+@use "./helpers/mediaQ" as *;
+
+footer {
+    background-color: var(--Very-Dark-Blue);
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--text-color);
+
+    @include mediaQ(small) {
+        padding: 1.5rem 0;
+    }
+
+    .container {
+        @include mediaQ(small) {
+            @include flex-between ;
+        }
+
+        .footer-logo {
+            margin-bottom: 25px;
+            @include mediaQ(small) {
+                margin-bottom: 0;
+            }
+        }
+    
+        .footer-list {
+            margin-bottom: 30px;
+            @include mediaQ(small) {
+                @include flex-center ;
+                gap: 15px;
+                margin-bottom: 0;
+            }
+    
+            .footer-link {
+                text-transform: uppercase;
+                margin-bottom: 15px;
+                font-weight: 100;
+    
+                @include mediaQ(small) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    
+        .social {
+            @include flex-center ;
+    
+            .icon-footer {
+                color: var(--text-color);
+                font-size: 1.8rem;
+    
+                &:not(:last-child) {
+                    margin-right: 1.875rem;
+                }
+            }
+        }
+    }
+}

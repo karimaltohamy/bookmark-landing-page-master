@@ -1,0 +1,94 @@
+@use "./helpers/varibales" as *;
+@use "./helpers/mixins" as *;
+@use "./layout/layout" as *;
+@use "./helpers/mediaQ" as *;
+
+.contact {
+    background-color: var(--Primary-blue);
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 1rem;
+    padding: 3.5rem 0;
+
+    &-info {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 17px;
+    }
+
+    &-title {
+        color: var(--text-color);
+        margin-top: .7rem;
+        font-size: 1.555rem;
+        font-weight: $font-normal;
+    }
+
+    .form {
+        margin-top: 1rem;
+        @include mediaQ(small) {
+            @include flex-center;
+            gap: 30px;
+        }
+
+        .cont {
+            @include mediaQ(small) {
+                width: 530px;
+            }
+
+            .email {
+                border: 3px solid white;
+                width: 100%;
+                font-size: 18px;
+                height: 60px;
+                padding: 0 20px;
+                letter-spacing: 1px;
+                border-radius: 6px;
+                background-color: var(--text-color);
+                color: var(--Grayish-Blue);
+                outline: none;
+    
+                &::placeholder {
+                    color: var(--Grayish-Blue);
+                    letter-spacing: 1px;
+                }
+    
+                &.active {
+                    border-radius: 0;
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                }
+            }
+    
+            .text {
+                
+                text-align: left;
+                font-size: $font-sm;
+                color: var(--text-color);
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+    
+                &.invalid {
+                    padding: 7px;
+                    background-color: var(--Primary-red);
+                    margin-bottom: 15px;
+                }
+    
+                &.valid {
+                    padding: 7px;
+                    background-color: rgb(4 171 68);
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    .contact-button {
+        @include button(var(--Primary-red), var(--text-color));
+        width: 100%;
+        font-size: 19px;
+        letter-spacing: .5px;
+        @include mediaQ(small) {
+            width: 170px;
+        }
+    }
+}

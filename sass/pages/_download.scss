@@ -1,0 +1,93 @@
+@use "./helpers/varibales" as *;
+@use "./helpers/mixins" as *;
+@use "./layout/layout" as *;
+@use "./helpers/mediaQ" as *;
+
+.download {
+    margin-top: 5.5rem;
+    text-align: center;
+
+    &-title {
+        @extend %main-title;
+    }
+
+    &-p {
+        @extend %main-p;
+        max-width: 530px;
+        margin: auto;
+    }
+
+    &-boxes {
+        margin-top: 4.5rem;
+        @include flex-center;
+        flex-direction: column;
+        @include mediaQ(medium) {
+            flex-direction: row;
+            gap: 60px;
+            margin-top: 0;
+            margin: 13.5rem 0;
+        }
+
+        .box {
+            box-shadow: 0px 7px 12px hsl(231deg 69% 60% / 29%);
+            padding: 2rem 0;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            height: 410px;
+            width: 330px;
+
+            &:first-child {
+                @include mediaQ(medium) {
+                    transform: translateY(-65px);
+                }
+            }
+
+            &:last-child {
+                @include mediaQ(medium) {
+                    transform: translateY(65px);
+                }
+            }
+
+            &-data {
+                height: 85%;
+                padding: 0 1.5rem;
+                @include flex-center-clo;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0px;
+                    height: 4px;
+                    width: 100%;
+                    letter-spacing: 3px;
+                    left: 0;
+                    border-bottom: 5px dotted #d4d4d4;
+                }
+                img {
+                    margin-bottom: 1.5rem;
+                    width: 120px;
+                }
+
+                .box-title {
+                    color: var(--Very-Dark-Blue);
+                    margin-bottom: 10px;
+                    font-size: 22px;
+                }
+
+                .box-version {
+                    color: var(--Grayish-Blue);
+                    font-size: 17px;
+                }
+            }
+
+            .box-button {
+                margin-top: 15px;
+                padding: 0 1.5rem;
+                @include button(var(--Primary-blue), var(--text-color));
+                height: 50px;
+                width: 245px;
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+@use "./helpers/mixins" as *;
+@use "./helpers/varibales" as *;
+@use "./helpers/mediaQ" as *;
+header {
+    width: 100%;
+    background-color: var(--text-color);
+    padding: 10px 0;
+    @include fixed;
+    z-index: 999;
+
+    @include mediaQ(small) {
+        padding: 15px 0;
+    }
+
+    .container {
+        @include flex-between ;
+
+        .logo {
+            img {
+                width: 10.62rem;
+            }
+        }
+
+        .toggle-menu {
+            width: 1.3rem;
+            cursor: pointer;
+            @include mediaQ(medium) {
+                display: none;
+            }
+        }
+
+        .header-list {
+            display: none;
+            @include mediaQ(medium) {
+                display: flex;
+                align-items: center;
+                gap: 40px
+            }
+
+            .header-list-link {
+                text-transform: uppercase;
+                color: var(--Very-Dark-Blue);
+                font-size: 16px;
+            }
+
+            .header-button {
+                @include button(var(--Primary-red),var(--text-color));
+                height: 45px;
+                width: 130px;
+            }
+        }
+    }
+}
+
+// mobil menu
+.menu-mobil {
+    @include fixed;
+    z-index: 9999;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(229deg 31% 21% / 98%);
+    padding: 3rem 1.87rem;
+    transition: all .3s ease;
+
+    &.open {
+        top: 0;
+    }
+
+    .head{
+        @include flex-between ;
+        margin-bottom: 3.75rem;
+        
+        .mobil-logo {
+            font-size: 10.82rem;
+        }
+
+        .close {
+            width: 22px;
+            cursor: pointer;
+        }
+    }
+
+    .mobil-list {
+        @include flex-center-clo ;
+        justify-content: start;
+        height: 85%;
+
+        .mobil-list-item {
+            font-size: 1.57rem;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+
+            &:not(:last-child) {
+                border-top: 1px solid var(--text-gray);
+            }
+
+            &:nth-child(3) {
+                border-bottom: 1px solid var(--text-gray);
+            }
+            .mobil-list-link {
+                color: var(--text-color);
+                text-transform: uppercase;
+                font-weight: $font-400;
+            }
+        }
+    }
+
+    .social {
+        @include flex-center ;
+
+        .icon-mobil-menu {
+            color: var(--text-color);
+            font-size: 2.18rem;
+
+            &:not(:last-child) {
+                margin-right: 1.875rem;
+            }
+        }
+    }
+}

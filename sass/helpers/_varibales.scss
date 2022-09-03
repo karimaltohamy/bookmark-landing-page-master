@@ -1,0 +1,20 @@
+:root {
+    // color 
+    --Primary-blue: hsl(231, 69%, 60%);
+    --Primary-red: hsl(0, 94%, 66%);
+    --Grayish-Blue: hsl(229, 8%, 60%);
+    --Very-Dark-Blue: hsl(229, 31%, 21%);
+    --text-color: white;
+    --text-gray: #c2c2c273;
+}
+
+// font-size
+$font-sm: 1rem; // 14px
+$font-md: 1.125rem; // 18px
+$font-lg: 1.56rem;
+
+//font-weight
+$font-400: 400;
+$font-normal: 500;
+$font-semiBold: 600;
+$font-bold: 700;
